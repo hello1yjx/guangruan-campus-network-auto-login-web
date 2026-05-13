@@ -1,0 +1,93 @@
+{
+  "login_url": "http://portal.example.com/login",
+  "username": "your_username",
+  "password": "your_password",
+  "max_attempts": 5,
+  "page_timeout_seconds": 15,
+  "after_submit_wait_seconds": 3,
+  "ocr": {
+    "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+    "expected_length": 4,
+    "allowlist": "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+  },
+  "chrome": {
+    "headless": false,
+    "user_data_dir": "",
+    "binary_path": ""
+  },
+  "monitor": {
+    "check_interval_seconds": 60,
+    "offline_threshold": 2,
+    "post_login_wait_seconds": 10,
+    "startup_initial_delay_seconds": 10,
+    "request_timeout_seconds": 5,
+    "connectivity_check_url": "https://www.baidu.com",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) CampusNetAutoLogin/1.0",
+    "skip_login_when_proxy_enabled": true,
+    "only_login_when_campus_page_reachable": true
+  },
+  "success_keywords": [
+    "success",
+    "connected",
+    "welcome",
+    "logout"
+  ],
+  "failure_keywords": [
+    "captcha error",
+    "password error",
+    "account error",
+    "failed",
+    "error"
+  ],
+  "selectors": {
+    "username": [
+      {"by": "id", "value": "username"},
+      {"by": "name", "value": "username"},
+      {"by": "name", "value": "userName"},
+      {"by": "name", "value": "DDDDD"},
+      {"by": "css selector", "value": "input[type='text']"}
+    ],
+    "password": [
+      {"by": "id", "value": "password"},
+      {"by": "name", "value": "password"},
+      {"by": "name", "value": "upass"},
+      {"by": "name", "value": "upasswd"},
+      {"by": "name", "value": "PWD"},
+      {"by": "css selector", "value": "input[type='password']"}
+    ],
+    "captcha_input": [
+      {"by": "id", "value": "code"},
+      {"by": "id", "value": "Rand"},
+      {"by": "name", "value": "Rand"},
+      {"by": "name", "value": "captcha"},
+      {"by": "name", "value": "rand"},
+      {"by": "css selector", "value": "input[name*='captcha']"},
+      {"by": "css selector", "value": "input[name*='rand']"}
+    ],
+    "captcha_image": [
+      {"by": "id", "value": "image_code"},
+      {"by": "id", "value": "checkpic"},
+      {"by": "id", "value": "captchaImg"},
+      {"by": "css selector", "value": "img[src*='check']"},
+      {"by": "css selector", "value": "img[src*='captcha']"},
+      {"by": "css selector", "value": "img[onclick*='Rand']"}
+    ],
+    "submit_button": [
+      {"by": "css selector", "value": "button[onclick='login()']"},
+      {"by": "id", "value": "loginButton"},
+      {"by": "id", "value": "btnLogin"},
+      {"by": "name", "value": "0MKKey"},
+      {"by": "css selector", "value": "input[type='submit']"},
+      {"by": "css selector", "value": "button[type='submit']"},
+      {"by": "xpath", "value": "//input[contains(@value, 'Login')]"},
+      {"by": "xpath", "value": "//button[contains(., 'Login')]"}
+    ],
+    "captcha_refresh": [
+      {"by": "id", "value": "image_code"},
+      {"by": "id", "value": "checkpic"},
+      {"by": "id", "value": "captchaImg"},
+      {"by": "css selector", "value": "img[src*='check']"},
+      {"by": "css selector", "value": "img[src*='captcha']"}
+    ]
+  }
+}

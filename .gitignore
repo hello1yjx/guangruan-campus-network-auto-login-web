@@ -1,0 +1,8 @@
+config.json
+runtime/
+__pycache__/
+*.pyc
+*.pyo
+*.pid
+*.log
+.DS_Store
